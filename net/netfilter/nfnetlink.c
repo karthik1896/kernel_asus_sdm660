@@ -33,6 +33,8 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Harald Welte <laforge@netfilter.org>");
 MODULE_ALIAS_NET_PF_PROTO(PF_NETLINK, NETLINK_NETFILTER);
 
+#define NFNL_MAX_ATTR_COUNT	32
+
 static char __initdata nfversion[] = "0.30";
 
 #define NFNL_MAX_ATTR_COUNT	32
