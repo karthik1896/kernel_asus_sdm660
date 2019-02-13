@@ -188,10 +188,6 @@ static int nvt_lcm_power_source_ctrl(struct nvt_ts_data *data, int enable)
 extern int32_t nvt_extra_proc_init(void);
 #endif
 
-#if NVT_TOUCH_MP
-extern int32_t nvt_mp_proc_init(void);
-#endif
-
 struct nvt_ts_data *ts;
 
 static struct workqueue_struct *nvt_wq;
@@ -1707,13 +1703,6 @@ static int32_t nvt_ts_probe(struct i2c_client *client, const struct i2c_device_i
 	}
 #endif
 
-#if NVT_TOUCH_MP
-	ret = nvt_mp_proc_init();
-	if (ret != 0) {
-		NVT_ERR("nvt mp proc init failed. ret=%d\n", ret);
-		goto err_init_NVT_ts;
-	}
-#endif
 //Huaqin add for gesture by xudongfang at 20180913 start
 #if WAKEUP_GESTURE
 	nvt_gesture_mode_proc = proc_create(NVT_GESTURE_MODE, 0666, NULL,
