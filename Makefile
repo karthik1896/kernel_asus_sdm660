@@ -683,6 +683,10 @@ endif
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= $(call cc-disable-warning,compound-token-split-by-space)
 endif
+ifeq ($(CONFIG_ARCH_SDM660), y)
+KBUILD_CFLAGS   += -O3
+KBUILD_CFLAGS	+= -mcpu=cortex-a53 -mtune=cortex-a53
+endif
 
 KBUILD_CFLAGS += $(call cc-ifversion, -gt, 0900, \
 			$(call cc-option, -Wno-psabi) \
