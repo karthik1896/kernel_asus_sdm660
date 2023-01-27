@@ -1,4 +1,4 @@
-\#!/bin/bash
+#!/bin/bash
 
 #set -e
 
@@ -85,4 +85,4 @@ echo -e "$yellow Build completed in $(($DIFF / 60)) minute(s) and $(($DIFF % 60)
 
 echo "**** Uploading your zip now ****"
 		curl -sL https://git.io/file-transfer | sh
-                ./transfer wet Zeus-X00TD*.zip
+                ./transfer wet $FINAL_KERNEL_ZIP
